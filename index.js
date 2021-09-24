@@ -40,10 +40,10 @@ client.on('message', msg => {
     }
     
     if (msg.content == "derpbot send the message please") {
-        msg.client.channels.cache.find(channel => channel.id === ("825918595904438342")).send("<@!505170018556706817> 26" + \n +
-                                                                                                  "<@!691804974719434822> 14" + \n +
-                                                                                                  "<@!613719483051409419> 10" + \n +
-                                                                                                  "<@!716993756343042078> 10");
+        client.channels.get("825918595904438342").send("<@!505170018556706817> 26" + \n +
+                                                       "<@!691804974719434822> 14" + \n + 
+                                                       "<@!613719483051409419> 10" + \n +
+                                                       "<@!716993756343042078> 10");
         msg.reply("i did it maybe");
     }
     
