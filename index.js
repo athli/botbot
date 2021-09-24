@@ -23,15 +23,28 @@ client.on('message', msg => {
     var args;
     var command;
 
-    if (msg.content.includes("Congrats on winning absolutely nothing") && msg.author.id === nightbot_id) {
-        args = true;
-        command = "update_slots_lb";
-    } else if (msg.content.includes("traffic light POGGERS")) {
-        args = true;
-        command = "update_traffic_lb";
-    } else {
-        args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/);
-        command = args.shift().toLowerCase();
+    if (msg.author.id === nightbot_id) {
+        if (msg.content.includes("Congrats on winning absolutely nothing")) {
+            args = true;
+            command = "update_slots_lb";
+        } else if (msg.content.includes("traffic light POGGERS")) {
+            args = true;
+            command = "update_traffic_lb";
+        } else if (msg.content.includes(`You won ${/\d+/} points!`)) {
+            args = true;
+            command = "update_roulette_lb";
+        } else {
+            args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/);
+            command = args.shift().toLowerCase();
+        }
+    }
+    
+    if (msg.content == "derpbot send the message please") {
+        message.client.channels.cache.find(channel => channel.id === ("825918595904438342")).send("<@!505170018556706817> 26" + \n +
+                                                                                                  "<@!691804974719434822> 14" + \n +
+                                                                                                  "<@!613719483051409419> 10" + \n +
+                                                                                                  "<@!716993756343042078> 10");
+        message.reply("i did it maybe");
     }
     
     if (!client.commands.has(command)) {

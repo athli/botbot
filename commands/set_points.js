@@ -2,10 +2,9 @@ module.exports = {
     name: 'setpoints',
     description: "mod only override of slots or traffic leaderboard",
     async execute(message,args) {
-        // check if user is allowed to edit leaderboard: merp, magicat, or frost
-        const permittedUsers = ['208784519958888448', '505170018556706817', '691804974719434822'];
-        if (!permittedUsers.includes(message.author.id)) {
-            message.reply("you can't use this command");
+        // check if user is allowed to edit leaderboard: has discord bot role
+        if(!message.author.id.roles.includes('822799616994312213')) {
+            message.reply("you don't have permission to use this command.");
             return;
         }
         // get lb channel
@@ -15,25 +14,42 @@ module.exports = {
         var user;
         var score;
         // figure out which leaderboard
-        if (args[0].includes('slot')) {
-            // fetch lb_msg
-            try {
-                lb_msg = await lb_channel.messages.fetch('826263878706003998');
-            } catch {
-                message.reply("oops, something went wrong while trying to access the slot leaderboard");
+        switch (args[0]) {
+            case 'slot': {
+                // fetch lb_msg
+                try {
+                    lb_msg = await lb_channel.messages.fetch('826263878706003998');
+                } catch {
+                    message.reply("oops, something went wrong while trying to access the slot leaderboard");
+                    return;
+                }
+                break;
+            }
+            case 'traffic': {
+                // fetch lb_msg
+                try{
+                    lb_msg = await lb_channel.messages.fetch('826267588450975840');
+                } catch {
+                    message.reply("oops, something went wrong while trying to access the traffic leaderboard");
+                    return;
+                }
+                break;
+            }
+            case 'roulette': {
+                // fetch lb_msg
+                try{
+                    lb_msg = await lb_channel.messages.fetch(''); //send roulette lb msg and get id
+                } catch {
+                    message.reply("oops, something went wrong while trying to access the roulette leaderboard");
+                    return;
+                }
+                break;
+            }
+            default: {
+                message.reply("please give me a valid leaderboard to update as the first word you type after !setpoints.");
                 return;
             }
-        } else if (args[0].includes('traffic')) {
-            // fetch lb_msg
-            try{
-                lb_msg = await lb_channel.messages.fetch('826267588450975840');
-            } catch {
-                message.reply("oops, something went wrong while trying to access the traffic leaderboard");
-                return;
-            }
-        } else {
-            message.reply("please give me a valid leaderboard to update as the first word you type after !setpoints.");
-            return;
+            
         }
         // fetch the user
         let regex = /<@!*[0-9]+>/

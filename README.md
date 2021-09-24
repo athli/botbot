@@ -1,2 +1,2 @@
-# botbot
+# derpbot
 First Discord bot
