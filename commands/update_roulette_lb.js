@@ -16,7 +16,7 @@ module.exports = {
         var count_index;
         var roulette_lb_text;
 
-        lb_channel.messages.fetch("") //send lb msg and get id
+        lb_channel.messages.fetch('891093211223838761')
             .then(msg => {
                 lb_msg = msg;
 
