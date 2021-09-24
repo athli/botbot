@@ -50,14 +50,6 @@ client.on('message', msg => {
         msg.reply("oops, ping merpmerp");
     }
 
-    if (msg.content == "derpbot, please") {
-        client.channels.cache.get('825918595904438342').send("<@!505170018556706817> 26" + \n +
-                                                       "<@!691804974719434822> 14" + \n + 
-                                                       "<@!613719483051409419> 10" + \n +
-                                                       "<@!716993756343042078> 10");
-        msg.reply("i did it maybe");
-    }
-
     });
 
 client.login(process.env.TOKEN);
