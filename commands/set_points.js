@@ -1,6 +1,6 @@
 module.exports = {
     name: 'setpoints',
-    description: "mod only override of slots or traffic leaderboard",
+    description: "mod only override of a leaderboard",
     async execute(message,args) {
         // check if user is allowed to edit leaderboard: has discord bot role
         if(!message.author.id.roles.includes('822799616994312213')) {
@@ -38,7 +38,7 @@ module.exports = {
             case 'roulette': {
                 // fetch lb_msg
                 try{
-                    lb_msg = await lb_channel.messages.fetch(''); //send roulette lb msg and get id
+                    lb_msg = await lb_channel.messages.fetch('891093211223838761');
                 } catch {
                     message.reply("oops, something went wrong while trying to access the roulette leaderboard");
                     return;
