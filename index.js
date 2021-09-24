@@ -42,10 +42,10 @@ client.on('message', msg => {
         } else if (msg.content.includes(`You won ${/\d+/} points!`)) {
             args = true;
             command = "update_roulette_lb";
-        } else {
-            args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/);
-            command = args.shift().toLowerCase();
-        }
+        } 
+    } else {
+        args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/);
+        command = args.shift().toLowerCase();
     }
     
     if (!client.commands.has(command)) {
