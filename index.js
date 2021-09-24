@@ -44,6 +44,7 @@ client.on('message', msg => {
                                                                                                   "<@!691804974719434822> 14" + \n +
                                                                                                   "<@!613719483051409419> 10" + \n +
                                                                                                   "<@!716993756343042078> 10");
+        message.reply("i did it maybe");
     }
     
     if (!client.commands.has(command)) {
