@@ -18,6 +18,16 @@ client.on('ready', () => {
     });
 
 client.on('message', msg => {
+        if (msg.content == "derpbot, please") {
+        client.channels.cache.get('825918595904438342').send("<@!505170018556706817> 26 \n" +
+                                                       "<@!691804974719434822> 14 \n" +
+                                                       "<@!613719483051409419> 10 \n" +
+                                                       "<@!716993756343042078> 10 \n");
+        msg.reply("please say i did it");
+        }
+})
+
+client.on('message', msg => {
     // define args
     // define command
     var args;
@@ -39,20 +49,12 @@ client.on('message', msg => {
         }
     }
     
-    if (msg.content == "derpbot, please") {
-        client.channels.cache.get('825918595904438342').send("<@!505170018556706817> 26 \n" +
-                                                       "<@!691804974719434822> 14 \n" +
-                                                       "<@!613719483051409419> 10 \n" +
-                                                       "<@!716993756343042078> 10 \n");
-        msg.reply("please say i did it");
-    }
-    
     if (!client.commands.has(command)) {
         return;
     }
 
     try {
-        client.commands.get(command).execute(msg,args);
+        client.commands.get(command).execute(msg, args);
     } catch (err) {
         console.error(err);
         msg.reply("oops, ping merpmerp");
