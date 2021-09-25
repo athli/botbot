@@ -3,7 +3,7 @@ module.exports = {
     description: "mod only override of a leaderboard",
     async execute(message,args) {
         // check if user is allowed to edit leaderboard: has discord bot role
-        if(!message.author.id.roles.includes('822799616994312213')) {
+        if (!message.member.roles.cache.has('822799616994312213')) {
             message.reply("you don't have permission to use this command.");
             return;
         }
