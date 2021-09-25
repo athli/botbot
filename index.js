@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-// const config = require('./config.json');
+const config = require('./config.json');
 const nightbot_id = "83010416610906112";
 
 const client = new Discord.Client();
@@ -18,9 +18,10 @@ client.on('ready', () => {
     });
 
 /*
+//test messages
+
 client.on('message', msg => {
-        if (msg.content == "derpbot test") {
-        //test code
+        if (msg.content === "derpbot ") {
         msg.reply("done");
         }
 })
@@ -39,7 +40,7 @@ client.on('message', msg => {
         } else if (msg.content.includes("traffic light POGGERS")) {
             args = true;
             command = "update_traffic_lb";
-        } else if (msg.content.includes(`You won ${/\d+/} points!`)) {
+        } else if (/You won \d+ points?!/.test(msg.content)) {
             args = true;
             command = "update_roulette_lb";
         } 
