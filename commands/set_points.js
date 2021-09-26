@@ -49,9 +49,10 @@ module.exports = {
                 message.reply("please give me a valid leaderboard to update as the first word you type after !setpoints.");
                 return;
             }
-            
+
         }
         // fetch the user
+        let regex = /<@!*[0-9]+>/
         let regex = /<@!*\d+>/
         if (!regex.test(args[1])) {
             message.reply("please mention a person as the second thing you type after !setpoints.");
@@ -73,31 +74,11 @@ module.exports = {
             message.reply("leaderboard score must be the third word after !setpoints and must be a valid number");
             return;
         }
-        
-        if (score == 0) {
-            if (lb_msg.content.includes(user.id)) {
-                var leaderboard = lb_msg.content.split(' ');
-                // find user.id and index of it
-                leaderboard.forEach(element => {
-                    if (element.toString().includes(user.id)) {
-                        var name_index = leaderboard.indexOf(element);
-                        leaderboard.splice(name_index, 2);
-                        message.reply("user removed from leaderboard");
-                    }
-                }) 
-            }
-            else {
-                message.reply("user not on leaderboard");
-            }
-            return;
-        }
-        
         score = +args[2];
-        if (score < 0 || !Number.isInteger(score)) {
+        if (score < 1 || !Number.isInteger(score)) {
             message.reply("only positive integers are valid scores for the leaderboard");
             return;
         }
-            
         var score_index;
         // if user already on leaderboard, replace their score
         if (lb_msg.content.includes(user.id)) {
@@ -143,5 +124,4 @@ module.exports = {
         // send message saying you did it
         message.reply("i think i did it please go check now");
     }
-
 }
