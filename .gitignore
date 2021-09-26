@@ -1,2 +1,4 @@
 # private stuff
 config.json
+#actually use config.json on local files
+index.js
