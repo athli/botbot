@@ -52,7 +52,6 @@ module.exports = {
 
         }
         // fetch the user
-        let regex = /<@!*[0-9]+>/
         let regex = /<@!*\d+>/
         if (!regex.test(args[1])) {
             message.reply("please mention a person as the second thing you type after !setpoints.");
