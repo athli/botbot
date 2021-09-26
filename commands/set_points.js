@@ -49,9 +49,10 @@ module.exports = {
                 message.reply("please give me a valid leaderboard to update as the first word you type after !setpoints.");
                 return;
             }
-            
+
         }
         // fetch the user
+        let regex = /<@!*[0-9]+>/
         let regex = /<@!*\d+>/
         if (!regex.test(args[1])) {
             message.reply("please mention a person as the second thing you type after !setpoints.");
@@ -141,5 +142,4 @@ module.exports = {
         // send message saying you did it
         message.reply("i think i did it please go check now");
     }
-
 }
