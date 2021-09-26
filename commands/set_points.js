@@ -74,8 +74,26 @@ module.exports = {
             return;
         }
         score = +args[2];
-        if (score < 1 || !Number.isInteger(score)) {
+        if (score < 0 || !Number.isInteger(score)) {
             message.reply("only positive integers are valid scores for the leaderboard");
+            return;
+        }
+        if (score == 0) {
+            if (lb_msg.content.includes(user.id)) {
+                var leaderboard = lb_msg.content.split(' ');
+                // find user.id and index of it
+                leaderboard.forEach(element => {
+                    if (element.toString().includes(user.id)) {
+                        var name_index = leaderboard.indexOf(element);
+                        leaderboard.splice(name_index, 2);
+                        lb_msg.edit(leaderboard.join(' '));
+                        message.reply("user removed from leaderboard");
+                    }
+                }) 
+            }
+            else {
+                message.reply("user not on leaderboard");
+            }
             return;
         }
         var score_index;
