@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const config = require('./config.json');
+//const config = require('./config.json');
 const nightbot_id = "83010416610906112";
 
 const client = new Discord.Client();
