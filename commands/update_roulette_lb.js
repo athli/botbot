@@ -34,10 +34,10 @@ module.exports = {
                     } else {
                         if (winner.id == '691804974719434822') {
                             return;
-                        }
-
+                        } else {
                         // add user and score to end of lb_msg
                         roulette_lb_text.push(` \n<@${winner.id}>`, points.toString());
+                        }
                     }
                     
                     //check for change in order
