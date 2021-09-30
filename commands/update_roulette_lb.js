@@ -20,7 +20,7 @@ module.exports = {
             .then(msg => {
                 lb_msg = msg;
 
-                roulette_lb_text = lb_msg.content.split(' ');
+                roulette_lb_text = lb_msg.content.split(/ +/);
                 
 				if (winner !== undefined) {
                     // if user already has score
@@ -36,7 +36,7 @@ module.exports = {
                             return;
                         } else {
                         // add user and score to end of lb_msg
-                        roulette_lb_text.push(` \n<@${winner.id}>`, points.toString());
+                        roulette_lb_text.push(`\n<@${winner.id}>`, points.toString());
                         }
                     }
                     
