@@ -25,7 +25,7 @@ client.on('message', msg => {
             var lb_channel = msg.client.channels.cache.find(channel => channel.id == ("825918595904438342")); 
             lb_channel.messages.fetch('891093211223838761')
                 .then(leaderboard => {
-                    leaderboard.edit(leaderboard.split(/ +/).pop().join(' '));
+                    leaderboard.edit(leaderboard.split(/ +/).splice(8, 1).join(' '));
                 })
             msg.reply("done");
         }
