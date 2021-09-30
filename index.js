@@ -21,7 +21,7 @@ client.on('ready', () => {
 //test messages
 
 client.on('message', msg => {
-        if (msg.content === "derpbot ") {
+        if (msg.content === "derpbot") {
         var lb_channel = message.client.channels.cache.find(channel => channel.id === ("825918595904438342")); 
         lb_channel.messages.fetch('891093211223838761')
             .then(leaderboard => {
