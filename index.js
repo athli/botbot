@@ -22,7 +22,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
         if (msg.content == "derpbot edit") {
-            var lb_channel = msg.client.channels.cache.find(channel => channel.id === ("825918595904438342")); 
+            var lb_channel = msg.client.channels.cache.find(channel => channel.id == ("825918595904438342")); 
             lb_channel.messages.fetch('891093211223838761')
                 .then(leaderboard => {
                     leaderboard.edit(leaderboard.split(/ +/).pop().join(' '));
