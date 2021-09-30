@@ -26,7 +26,7 @@ client.on('message', msg => {
         lb_channel.messages.fetch('891093211223838761')
             .then(leaderboard => {
                 leaderboard.edit(leaderboard.split(' ').pop().join(' '));
-        ;})
+            })
         msg.reply("done");
         }
 })
