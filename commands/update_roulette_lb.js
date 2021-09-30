@@ -33,7 +33,7 @@ module.exports = {
 
                     } else {
                         // add user and score to end of lb_msg
-                        roulette_lb_text.push(' \n<@' + winner.id.toString() + '> ', points.toString());
+                        roulette_lb_text.push(` \n<@${winner.id}>`, points.toString());
                     }
                     
                     //check for change in order
