@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const config = require('./config.json');
+//const config = require('./config.json');
 const nightbot_id = "83010416610906112";
 
 const client = new Discord.Client();
@@ -17,15 +17,20 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     });
 
-/*
+
 //test messages
 
 client.on('message', msg => {
-        if (msg.content === "derpbot ") {
-        msg.reply("done");
+        if (msg.content == "derpbot edit") {
+            var lb_channel = msg.client.channels.cache.find(channel => channel.id == ("825918595904438342")); 
+            lb_channel.messages.fetch('891093211223838761')
+                .then(leaderboard => {
+                    leaderboard.edit(leaderboard.content.split(/ +/).pop().join(' '));
+                })
+            msg.reply("done");
         }
 })
-*/
+
 
 client.on('message', msg => {
     // define args

@@ -20,7 +20,7 @@ module.exports = {
             .then(msg => {
                 lb_msg = msg;
 
-                roulette_lb_text = lb_msg.content.split(' ');
+                roulette_lb_text = lb_msg.content.split(/ +/);
                 
 				if (winner !== undefined) {
                     // if user already has score
@@ -32,8 +32,12 @@ module.exports = {
                         roulette_lb_text[count_index] = (parseInt(roulette_lb_text[count_index]) + parseInt(points)).toString();
 
                     } else {
+                        if (winner.id == '691804974719434822') {
+                            return;
+                        } else {
                         // add user and score to end of lb_msg
-                        roulette_lb_text.push(' \n<@' + winner.id.toString() + '> ', points.toString());
+                        roulette_lb_text.push(`\n<@${winner.id}>`, points.toString());
+                        }
                     }
                     
                     //check for change in order
