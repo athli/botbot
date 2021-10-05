@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const config = require('./config.json');
+//const config = require('./config.json');
 const nightbot_id = "83010416610906112";
 
 const client = new Discord.Client();
@@ -45,7 +45,7 @@ client.on('message', msg => {
             command = "update_roulette_lb";
         } 
     } else {
-        args = msg.content.slice(config.prefix.length).trim().split(/ +/);
+        args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/);
         command = args.shift().toLowerCase();
     }
     
@@ -62,4 +62,4 @@ client.on('message', msg => {
 
     });
 
-client.login(config.token);
+client.login(process.env.TOKEN);
